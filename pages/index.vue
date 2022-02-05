@@ -6,7 +6,6 @@
 			<p style=" width: 100%; text-align: center; font-size: 72px; font-weight: bold; margin-top: 250px;"></p>
 		</div>
 	</div>
-    <Mask/>
   </div>
 </template>
 

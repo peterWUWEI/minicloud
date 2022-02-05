@@ -1,27 +1,27 @@
 <template>
     <div class="left">
 		<div class="logo">
-			<a href><img src="../images/logo.png"></a>
+			<nuxt-link to="/"> <img src="../images/logo.png"> </nuxt-link>
 		</div>
 		<div class="nav">
 			<ul>
 				<li>
-                    <nuxt-link to="/products"> 产品・服务 </nuxt-link>
+                    <nuxt-link to="/services"> 产品・服务 </nuxt-link>
                 </li>
 				<li>
                     <nuxt-link to="/news"> 新闻・通知 </nuxt-link>
                 </li>
 				<li>
-                    <nuxt-link to="/corporate"> 企业・招聘 </nuxt-link>
+                    <nuxt-link to="/about"> 企业・招聘 </nuxt-link>
                 </li>
 				<li>
-                    <nuxt-link to="/notices"> <span style="letter-spacing: 9px;">IR</span>・公告 </nuxt-link>
+                    <nuxt-link to="/investors"> <span style="letter-spacing: 9px;">IR</span>・公告 </nuxt-link>
                 </li>
 				<li>
-                    <nuxt-link to="/sustainbility"> 可持续发展 </nuxt-link>
+                    <nuxt-link to="/sustainability"> 可持续发展 </nuxt-link>
                 </li>
 				<li>
-                    <nuxt-link to="/connect"> 访问・联系 </nuxt-link>
+                    <nuxt-link to="/contact"> 访问・联系 </nuxt-link>
                 </li>
 				<li><form action="__URL__/search" method="get" id="search"><input class="input-search" name="keyword" size="5" style="width: 100px;padding-right: 30px;box-sizing: border-box;"><img src="../images/icon-search.png" width="25" alt=""  style="line-height: 50px;vertical-align: middle; margin-left: -30px;" onclick="document.getElementById('search').submit();" ></form> </li>
 				<li>
@@ -37,9 +37,12 @@
 		<div class="bottom">
 			<div class="info">
 				<ul>
-					<a href><li>⽹站地图</li></a>
-					<li style="width: 2%">|</li>
-					<a href><li>⽹站政策</li></a>
+					<li> 
+                        <nuxt-link to="/sitemap"> ⽹站地图 </nuxt-link> 
+                    </li>
+					<li>
+                        <nuxt-link to="/sitepolicy"> ⽹站政策 </nuxt-link> 
+                    </li>
 				</ul>
 			</div>
 			<div class="copyright">
