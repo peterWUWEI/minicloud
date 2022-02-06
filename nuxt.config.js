@@ -20,6 +20,36 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    ['nuxt-i18n', {
+      locales: [
+        {
+          name: 'Japanese',
+          code: 'jp',
+          iso: 'ja-JP',
+          file: 'ja-JP.js'
+        },
+        {
+          name: 'English',
+          code: 'en',
+          iso: 'en-US',
+          file: 'en-US.js'
+        },
+        {
+          name: 'Chinese (Simplified)',
+          code: 'cn',
+          iso: 'zh-CN',
+          file: 'zh-CN.js'
+        },
+        {
+          name: 'Chinese (Traditional)',
+          code: 'tw',
+          iso: 'zh-TW',
+          file: 'zh-TW.js'
+        }
+      ],
+      langDir: 'lang/',
+      defaultLocale: 'jp',
+    }]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

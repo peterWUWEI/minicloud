@@ -1,14 +1,17 @@
 <template>
     <div>
         <Left/>
-        <div class="main">
-            <div class="top">
-                <div class="title">私達のサービス</div>
-            </div>
+
+        <b-container fluid>
+            <div class="main">
+                <div class="top">
+                    <div class="title">私達のサービス</div>
+                </div>
             <div class="content">
-                
+                    
+                </div>
             </div>
-        </div>
+        </b-container>
     </div>
 </template>
 

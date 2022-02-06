@@ -140,7 +140,13 @@
     .main{overflow: hidden; clear: both; margin-left: 300px;width: 100vw;}
     .main .content{text-align: center;margin-top: 300px; font-size: 50px}
 
-    .main .top{width:100%; height: 170px; background:#3e75b9;overflow: hidden; }
+    .main .top {
+        width: 100%; 
+        height: 200px; 
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+    }
     .main .top .title{font-size: 28px; margin-top: 50px; margin-left: 40px;color: #fff;}
     .main .top .maintitle{font-size: 18px; margin-top: 50px; margin-left: 40px;color: #fff;}
     .main .top .subtitle{font-size: 28px; margin-top: 10px; margin-left: 40px;color: #fff;}
