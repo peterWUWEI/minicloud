@@ -4,34 +4,36 @@
 			<nuxt-link :to="localePath('/')"> <img src="../images/logo.png"> </nuxt-link>
 		</div>
 		<div class="nav">
-			<ul>
-				<li>
+			<b-nav vertical>
+				<b-nav-item>
                     <nuxt-link :to="localePath('services')"> {{ $t('services') }} </nuxt-link>
-                </li>
-				<li>
+                </b-nav-item>
+				<b-nav-item>
                     <nuxt-link :to="localePath('news')"> {{ $t('news') }} </nuxt-link>
-                </li>
-				<li>
+                </b-nav-item>
+				<b-nav-item>
                     <nuxt-link :to="localePath('about')"> {{ $t('about') }} </nuxt-link>
-                </li>
-				<li>
+                </b-nav-item>
+				<b-nav-item>
                     <nuxt-link :to="localePath('investors')"> <span style="letter-spacing: 9px;">IR</span> {{ $t('investors') }} </nuxt-link>
-                </li>
-				<li>
+                </b-nav-item>
+				<b-nav-item>
                     <nuxt-link :to="localePath('sustainability')"> {{ $t('sustainability') }} </nuxt-link>
-                </li>
-				<li>
+                </b-nav-item>
+				<b-nav-item>
                     <nuxt-link :to="localePath('contact')"> {{ $t('contact') }} </nuxt-link>
-                </li>
-				<li><form action="__URL__/search" method="get" id="search"><input class="input-search" name="keyword" size="5" style="width: 100px;padding-right: 30px;box-sizing: border-box;"><img src="../images/icon-search.png" width="25" alt=""  style="line-height: 50px;vertical-align: middle; margin-left: -30px;" onclick="document.getElementById('search').submit();" ></form> </li>
-				<li>
+                </b-nav-item>
+				<b-nav-item>
+                    <form action="__URL__/search" method="get" id="search"><input class="input-search" name="keyword" size="5" style="width: 100px;padding-right: 30px;box-sizing: border-box;"><img src="../images/icon-search.png" width="25" alt=""  style="line-height: 50px;vertical-align: middle; margin-left: -30px;" onclick="document.getElementById('search').submit();" ></form> 
+                </b-nav-item>
+				<b-nav-item>
 					<Language-selector/>
-				</li>
-			</ul>
+				</b-nav-item>
+			</b-nav>
 		</div>
 		<div class="bottom">
 			<div class="info">
-				<ul>
+				<ul class="no-bullets">
 					<li> 
                         <nuxt-link :to="localePath('sitemap')"> {{ $t('sitemap') }} </nuxt-link> 
                     </li>
@@ -41,7 +43,7 @@
 				</ul>
 			</div>
 			<div class="copyright">
-				©   2020   株式会社ミニクラウド
+				©   2022   株式会社ミニクラウド
 			</div>
 		</div>
 	</div>
@@ -116,5 +118,11 @@ export default {
         color: #000;
         float: left;
         line-height: 50px;
+    }
+
+    ul.no-bullets {
+        list-style-type: none; /* Remove bullets */
+        padding: 0;
+        margin: 0;
     }
 </style>

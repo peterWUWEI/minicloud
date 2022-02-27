@@ -137,7 +137,7 @@
     }
 
     .left .boottom .copyright{width: 100%;line-height: 50px;}
-    .main{overflow: hidden; clear: both; margin-left: 300px;width: 100vw;}
+    .main{overflow: hidden; clear: both; margin-left: 300px;width: 85vw;}
     .main .content{text-align: center;margin-top: 300px; font-size: 50px}
 
     .main .top {
@@ -147,12 +147,32 @@
         background-size: cover;
         overflow: hidden;
     }
+
+    .main .content {
+        width:96%; 
+        height: auto; 
+        margin: auto; 
+        margin-top: 30px; 
+        display: flex; 
+        justify-content: space-between; 
+        flex-wrap: wrap;
+    }
+
+    .main .content .item {
+        width:30%; 
+        height: 150px; 
+        background: #ccc; 
+        float: left; 
+        text-align: center; 
+        line-height: 150px; 
+        font-size: 20px; 
+        margin-bottom: 20px;
+    }
+    .main .content p{color:#000;text-decoration-line: none;}
+
     .main .top .title{font-size: 28px; margin-top: 50px; margin-left: 40px;color: #fff;}
     .main .top .maintitle{font-size: 18px; margin-top: 50px; margin-left: 40px;color: #fff;}
     .main .top .subtitle{font-size: 28px; margin-top: 10px; margin-left: 40px;color: #fff;}
-    .main .content{width:96%; height: auto; margin: auto; margin-top: 30px; display: flex; justify-content: space-between; flex-wrap: wrap;}
-    .main .content .item{width:30%; height: 150px; background: #ccc; float: left; text-align: center; line-height: 150px; font-size: 20px; margin-bottom: 20px;}
-    .main .content a{color:#000;text-decoration-line: none;}
 
     .main .content .news-item{width:100%;height: 100px;text-align: left; font-size: 20px; margin-top:20px;}
     .main .content .news-item .item-left{width:80px;height: 80px;background:#ccc;border-radius: 80px;float: left;}
