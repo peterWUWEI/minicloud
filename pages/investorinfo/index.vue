@@ -3,27 +3,29 @@
         <Left/>
         <div class="main">
             <div class="top">
-                <div class="title">{{ $t('service_header') }}</div>
+                <div class="title">{{ $t('investor_info_header') }}</div>
             </div>
             <div class="content">
-                <ServiceContent v-for="item in service_list" v-bind:key="item.id" :id="item.id" :service_title="item.service_title"/>
+                <div class="inv-title">電⼦公告</div>
+                <InvestorContent v-for="item in investor_list" v-bind:key="item.id" :id="item.id" :pdf_title="item.pdf_title" :pdf_file_url="item.pdf_file_url"/>
             </div>
         </div>
     </div>
+    
 </template>
 
 <script>
     import axios from 'axios';
-    import ServiceContent from '../../components/ServiceContent';
+    import InvestorContent from '../../components/InvestorContent';
 
     export default {
-        name: 'services',
+        name: 'investorinfo',   
         components: {
-            ServiceContent
+            InvestorContent
         },
         data() {
             return {
-                service_list: []
+                investor_list: []
             }
         },
         async created() {
@@ -34,8 +36,8 @@
                 }
             }
             try {
-                const res = await axios.get('http://localhost:8080/api/v1/services', config);
-                this.service_list = res.data
+                const res = await axios.get('http://localhost:8080/api/v1/investorinfo', config);
+                this.investor_list = res.data
                 console.log(res.data)
             } catch (err) {
                 console.error(err);
@@ -46,6 +48,6 @@
 
 <style scoped>
     .main .top {
-        background-image: url(../../images/bg-services.jpg);
+        background-image: url(../../images/bg-investors.jpg);
     }
 </style>

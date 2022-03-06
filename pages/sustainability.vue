@@ -3,19 +3,41 @@
         <Left/>
         <div class="main">
             <div class="top">
-                <div class="title">サステナビリティ</div>
+                <div class="title">{{ $t('sustainability_header') }}</div>
             </div>
             <div class="content">
-                <div class="sd-title">{$sd.title}</div>
-                <div class="sd-content">{$sd.content}</div>
+                <div class="sd-title">{{ sustainability.title }}</div>
+                <div class="sd-content">{{ sustainability.content }}</div>
             </div>
 	    </div>
     </div>
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
-        name: 'sustainability'
+        name: 'sustainability',
+        data() {
+            return {
+                sustainability: {}
+            }
+        },
+        async created() {
+            const config = {
+                headers: {
+                    'Accept': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }
+            try {
+                const res = await axios.get('http://localhost:8080/api/v1/sustainability', config);
+                this.sustainability = res.data
+                console.log(res.data)
+            } catch (err) {
+                console.error(err);
+            }
+        }
     }
 </script>
 

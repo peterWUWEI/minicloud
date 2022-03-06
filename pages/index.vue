@@ -135,8 +135,7 @@
         display: inline-block; 
         vertical-align: middle;
     }
-
-    .left .boottom .copyright{width: 100%;line-height: 50px;}
+    
     .main{overflow: hidden; clear: both; margin-left: 300px;width: 85vw;}
     .main .content{text-align: center;margin-top: 300px; font-size: 50px}
 

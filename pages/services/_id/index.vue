@@ -3,7 +3,7 @@
         <Left/>
         <div class="main">
             <div class="top">
-                <div class="title">私達のサービス</div>
+                <div class="title">{{ $t('service_header') }}</div>
             </div>
             <div class="content">
                 <div class="sd-title">{{ service.service_title }}</div>

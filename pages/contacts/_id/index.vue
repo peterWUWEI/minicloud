@@ -3,27 +3,26 @@
         <Left/>
         <div class="main">
             <div class="top">
-                <div class="title">{{ $t('service_header') }}</div>
+                <div class="title">{{ $t('contact_header')}}</div>
             </div>
+
             <div class="content">
-                <ServiceContent v-for="item in service_list" v-bind:key="item.id" :id="item.id" :service_title="item.service_title"/>
+                <div class="sd-title">{{ contact.title }}</div>
+                <div class="sd-content">{{ contact.content}}</div>
             </div>
-        </div>
+	    </div>
     </div>
+    
 </template>
 
 <script>
     import axios from 'axios';
-    import ServiceContent from '../../components/ServiceContent';
 
     export default {
-        name: 'services',
-        components: {
-            ServiceContent
-        },
+        name: 'contacts',
         data() {
             return {
-                service_list: []
+                contact: {}
             }
         },
         async created() {
@@ -34,8 +33,8 @@
                 }
             }
             try {
-                const res = await axios.get('http://localhost:8080/api/v1/services', config);
-                this.service_list = res.data
+                const res = await axios.get(`http://localhost:8080/api/v1/contacts/get?id=${this.$route.params.id}`, config);
+                this.contact = res.data
                 console.log(res.data)
             } catch (err) {
                 console.error(err);
@@ -46,6 +45,6 @@
 
 <style scoped>
     .main .top {
-        background-image: url(../../images/bg-services.jpg);
+        background-image: url(../../../images/bg-contact.jpg);
     }
 </style>

@@ -15,13 +15,13 @@
                     <nuxt-link :to="localePath('about')"> {{ $t('about') }} </nuxt-link>
                 </b-nav-item>
 				<b-nav-item>
-                    <nuxt-link :to="localePath('investors')"> <span style="letter-spacing: 9px;">IR</span> {{ $t('investors') }} </nuxt-link>
+                    <nuxt-link :to="localePath('investorinfo')"> <span style="letter-spacing: 9px;">IR</span> {{ $t('investors') }} </nuxt-link>
                 </b-nav-item>
 				<b-nav-item>
                     <nuxt-link :to="localePath('sustainability')"> {{ $t('sustainability') }} </nuxt-link>
                 </b-nav-item>
 				<b-nav-item>
-                    <nuxt-link :to="localePath('contact')"> {{ $t('contact') }} </nuxt-link>
+                    <nuxt-link :to="localePath('contacts')"> {{ $t('contact') }} </nuxt-link>
                 </b-nav-item>
 				<b-nav-item>
                     <form action="__URL__/search" method="get" id="search"><input class="input-search" name="keyword" size="5" style="width: 100px;padding-right: 30px;box-sizing: border-box;"><img src="../images/icon-search.png" width="25" alt=""  style="line-height: 50px;vertical-align: middle; margin-left: -30px;" onclick="document.getElementById('search').submit();" ></form> 
@@ -117,6 +117,11 @@ export default {
         width:49%;
         color: #000;
         float: left;
+        line-height: 50px;
+    }
+
+    .left .boottom .copyright {
+        width: 100%;
         line-height: 50px;
     }
 
