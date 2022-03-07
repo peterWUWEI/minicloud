@@ -15,8 +15,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
-
     export default {
         name: 'contacts',
         data() {
@@ -25,14 +23,8 @@
             }
         },
         async created() {
-            const config = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                }
-            }
             try {
-                const res = await axios.get('http://localhost:8080/api/v1/contacts', config);
+                const res = await this.$axios.get(`/api/contacts`);
                 this.contact_list = res.data
                 console.log(res.data)
             } catch (err) {

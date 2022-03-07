@@ -15,7 +15,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import InvestorContent from '../../components/InvestorContent';
 
     export default {
@@ -29,14 +28,8 @@
             }
         },
         async created() {
-            const config = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                }
-            }
             try {
-                const res = await axios.get('http://localhost:8080/api/v1/investorinfo', config);
+                const res = await this.$axios.get(`/api/investorinfo`, config);
                 this.investor_list = res.data
                 console.log(res.data)
             } catch (err) {

@@ -14,8 +14,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
-
     export default {
         name: 'sustainability',
         data() {
@@ -24,14 +22,8 @@
             }
         },
         async created() {
-            const config = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                }
-            }
             try {
-                const res = await axios.get('http://localhost:8080/api/v1/sustainability', config);
+                const res = await this.$axios.get(`/api/sustainability`);
                 this.sustainability = res.data
                 console.log(res.data)
             } catch (err) {

@@ -13,7 +13,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import ServiceContent from '../../components/ServiceContent';
 
     export default {
@@ -27,14 +26,8 @@
             }
         },
         async created() {
-            const config = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                }
-            }
             try {
-                const res = await axios.get('http://localhost:8080/api/v1/services', config);
+                const res = await this.$axios.get(`/api/services`);
                 this.service_list = res.data
                 console.log(res.data)
             } catch (err) {

@@ -14,8 +14,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
-
     export default {
         name: 'services_page',
         data() {
@@ -24,14 +22,8 @@
             }
         },
         async created() {
-            const config = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                }
-            }
             try {
-                const res = await axios.get(`http://localhost:8080/api/v1/services/get?id=${this.$route.params.id}`, config);
+                const res = await this.$axios.get(`/api/services/get?id=${this.$route.params.id}`);
                 this.service = res.data
                 console.log(res.data)
             } catch (err) {

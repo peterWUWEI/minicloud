@@ -20,6 +20,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/proxy',
+    '@nuxtjs/axios',
     ['nuxt-i18n', {
       locales: [
         {
@@ -51,6 +53,22 @@ export default {
       defaultLocale: 'jp',
     }]
   ],
+
+  axios: {
+    proxy: true,
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${process.env.API_KEY}`
+    }
+  },
+
+  proxy: {
+    // Simple proxy
+    "/api/": {
+      target: process.env.API_URL,
+      pathRewrite: { "^/api/": "" }
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
