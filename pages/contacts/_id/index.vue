@@ -25,7 +25,7 @@
         },
         async created() {
             try {
-                const res = await this.$axios.get(`${this.$axios.defaults.baseURL}contacts/get?id=${this.$route.params.id}`);
+                const res = await this.$axios.get(`/contacts/get?id=${this.$route.params.id}`);
                 this.contact = res.data
                 console.log(res.data)
             } catch (err) {

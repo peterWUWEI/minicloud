@@ -23,7 +23,7 @@
         },
         async created() {
             try {
-                const res = await this.$axios.get(`/api/services/get?id=${this.$route.params.id}`);
+                const res = await this.$axios.get(`/services/get?id=${this.$route.params.id}`);
                 this.service = res.data
                 console.log(res.data)
             } catch (err) {

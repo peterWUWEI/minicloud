@@ -24,7 +24,7 @@
         },
         async created() {
             try {
-                const res = await this.$axios.get(`/api/contacts`);
+                const res = await this.$axios.get(`/contacts`);
                 this.contact_list = res.data
                 console.log(res.data)
             } catch (err) {

@@ -13,6 +13,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
     import ServiceContent from '../../components/ServiceContent';
 
     export default {
@@ -27,7 +28,7 @@
         },
         async created() {
             try {
-                const res = await this.$axios.get(`/api/services`);
+                const res = await this.$axios.get(`/services`);
                 this.service_list = res.data
                 console.log(res.data)
             } catch (err) {

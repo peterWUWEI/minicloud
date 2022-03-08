@@ -23,7 +23,7 @@
         },
         async created() {
             try {
-                const res = await this.$axios.get(`/api/about`);
+                const res = await this.$axios.get(`/about`);
                 this.about_list = res.data
                 console.log(res.data)
             } catch (err) {

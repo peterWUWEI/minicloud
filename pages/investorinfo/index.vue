@@ -29,7 +29,7 @@
         },
         async created() {
             try {
-                const res = await this.$axios.get(`/api/investorinfo`, config);
+                const res = await this.$axios.get(`/investorinfo`);
                 this.investor_list = res.data
                 console.log(res.data)
             } catch (err) {

@@ -27,7 +27,7 @@
         },
         async created() {
             try {
-                const res = await this.$axios.get(`/api/news`);
+                const res = await this.$axios.get(`/news`);
                 this.news_list = res.data
                 console.log(res.data)
             } catch (err) {

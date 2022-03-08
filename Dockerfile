@@ -1,8 +1,8 @@
 FROM node:14
 
-# create destination directory
-RUN mkdir -p /usr/src/nuxt-app
-WORKDIR /usr/src/nuxt-app
+# Create app directory
+RUN mkdir -p /app
+WORKDIR /app
 
 COPY package*.json ./
 

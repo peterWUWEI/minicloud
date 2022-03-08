@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
-    "@nuxtjs/proxy": "^2.1.0",
     "bootstrap": "^4.6.1",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.19.3",
@@ -26,6 +25,5 @@
     "@nuxt/typescript-build": "^2.1.0",
     "sass": "^1.49.7",
     "sass-loader": "^10.2.1"
-  },
-  "proxy": "http://localhost:8080"
+  }
 }

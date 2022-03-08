@@ -24,7 +24,7 @@
         },
         async created() {
             try {
-                const res = await this.$axios.get(`/api/investorinfo/get?id=${this.$route.params.id}`);
+                const res = await this.$axios.get(`/investorinfo/get?id=${this.$route.params.id}`);
                 this.invest_info = res.data
                 console.log(res.data)
             } catch (err) {

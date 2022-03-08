@@ -23,7 +23,7 @@
         },
         async created() {
             try {
-                const res = await this.$axios.get(`/api/sustainability`);
+                const res = await this.$axios.get(`/sustainability`);
                 this.sustainability = res.data
                 console.log(res.data)
             } catch (err) {
