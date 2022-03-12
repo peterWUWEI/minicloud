@@ -1,7 +1,7 @@
 <template>
   <div>
     <Left/>
-    <div class="main body-bg" onclick="location.href='{$setting.imgurl2}'" style="cursor: pointer;" >
+    <div class="main body-bg" onclick="location.href=#" style="cursor: pointer;" >
 		<div class="content">
 			<p style=" width: 100%; text-align: center; font-size: 72px; font-weight: bold; margin-top: 250px;"></p>
 		</div>
@@ -42,7 +42,7 @@
     }
 
     .body-bg {
-        background: url(../images/bg-index.jpg)no-repeat; 
+        background: url("/images/bg-index.jpg")no-repeat; 
         background-size: cover;
         background-position: center center;
         height: 100vh;

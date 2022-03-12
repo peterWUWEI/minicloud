@@ -40,6 +40,6 @@
 
 <style scoped>
     .main .top {
-        background-image: url(../../images/bg-services.jpg);
+        background-image: url("/images/bg-services.jpg");
     }
 </style>

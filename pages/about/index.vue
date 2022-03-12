@@ -35,6 +35,6 @@
 
 <style scoped>
     .main .top {
-        background-image: url(../../images/bg-about.jpg);
+        background-image: url("/images/bg-about.jpg");
     }
 </style>

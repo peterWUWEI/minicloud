@@ -1,7 +1,7 @@
 <template>
     <div class="left">
 		<div class="logo">
-			<nuxt-link :to="localePath('/')"> <img src="../images/logo.png"> </nuxt-link>
+			<nuxt-link :to="localePath('/')"> <img src="/images/logo.png"> </nuxt-link>
 		</div>
 		<div class="nav">
 			<b-nav vertical>
@@ -24,7 +24,7 @@
                     <nuxt-link :to="localePath('contacts')"> {{ $t('contact') }} </nuxt-link>
                 </b-nav-item>
 				<b-nav-item>
-                    <form action="" method="get" id="search"><input class="input-search" name="keyword" size="5" style="width: 100px;padding-right: 30px;box-sizing: border-box;"><img src="../images/icon-search.png" width="25" alt=""  style="line-height: 50px;vertical-align: middle; margin-left: -30px;" onclick="document.getElementById('search').submit();" ></form> 
+                    <form action="" method="get" id="search"><input class="input-search" name="keyword" size="5" style="width: 100px;padding-right: 30px;box-sizing: border-box;"><img src="/images/icon-search.png" width="25" alt=""  style="line-height: 50px;vertical-align: middle; margin-left: -30px;" onclick="document.getElementById('search').submit();" ></form> 
                 </b-nav-item>
 				<b-nav-item>
 					<Language-selector/>
