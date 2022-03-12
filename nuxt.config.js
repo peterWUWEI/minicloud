@@ -57,7 +57,8 @@ export default {
     baseURL: process.env.API_URL,
     headers: {
       'Accept': 'application/json',
-      'Authorization': `Bearer ${process.env.API_KEY}`
+      'Authorization': `Bearer ${process.env.API_KEY}`,
+      'Access-Control-Allow-Origin': '*'
     }
   },
 
