@@ -2,7 +2,7 @@
     <div>
         <Left/>
         <div class="main">
-            <div class="top">
+            <div class="top" :style="image">
                 <div class="title">{{ $t('sustainability_header') }}</div>
             </div>
             <div class="content">
@@ -14,11 +14,13 @@
 </template>
 
 <script>
+    import sdImg from "assets/bg-sd.jpg";
     export default {
         name: 'sustainability',
         data() {
             return {
-                sustainability: {}
+                sustainability: {},
+                image: { backgroundImage: `url(${sdImg})` }
             }
         },
         async created() {
@@ -32,9 +34,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .main .top {
-        background-image: url("/images/bg-sd.jpg");
-    }
-</style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Left/>
-    <div class="main body-bg" onclick="location.href=#" style="cursor: pointer;" >
+    <div class="main body-bg" onclick="location.href=#" style="cursor: pointer;" :style="image">
 		<div class="content">
 			<p style=" width: 100%; text-align: center; font-size: 72px; font-weight: bold; margin-top: 250px;"></p>
 		</div>
@@ -19,6 +19,7 @@
 </script>
 
 <script>
+  import bgImg from "assets/bg-index.jpg";
   export default {
       head() {
           return {
@@ -30,6 +31,11 @@
                   }
               ]
           }   
+      },
+      data() {
+          return {
+              image: { backgroundImage: `url(${bgImg})` }
+          }
       }
   }
 
@@ -42,7 +48,6 @@
     }
 
     .body-bg {
-        background: url("/images/bg-index.jpg")no-repeat; 
         background-size: cover;
         background-position: center center;
         height: 100vh;

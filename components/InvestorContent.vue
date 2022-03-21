@@ -5,7 +5,7 @@
                 {{ pdf_title }}
             </nuxt-link>
         </p>
-        <a class="inv-item" :href="`/` + pdf_file_url" download=""><img src="/images/icon-pdf.png"> </a>
+        <a class="inv-item" :href="`/` + pdf_file_url" download=""><img src="/icon-pdf.png" /> </a>
     </div>
     
 </template>

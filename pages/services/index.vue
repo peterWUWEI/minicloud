@@ -2,7 +2,7 @@
     <div>
         <Left/>
         <div class="main">
-            <div class="top">
+            <div class="top" :style="image">
                 <div class="title">{{ $t('service_header') }}</div>
             </div>
             <div class="content">
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    import serviceImg from "assets/bg-services.jpg";
     import ServiceContent from '../../components/ServiceContent';
 
     export default {
@@ -23,7 +23,8 @@
         },
         data() {
             return {
-                service_list: []
+                service_list: [],
+                image: { backgroundImage: `url(${serviceImg})` }
             }
         },
         async created() {
@@ -37,9 +38,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .main .top {
-        background-image: url("/images/bg-services.jpg");
-    }
-</style>

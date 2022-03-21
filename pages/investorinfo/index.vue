@@ -2,7 +2,7 @@
     <div>
         <Left/>
         <div class="main">
-            <div class="top">
+            <div class="top" :style="image">
                 <div class="title">{{ $t('investor_info_header') }}</div>
             </div>
             <div class="content">
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+    import investImg from "assets/bg-investors.jpg";
     import InvestorContent from '../../components/InvestorContent';
 
     export default {
@@ -24,7 +25,8 @@
         },
         data() {
             return {
-                investor_list: []
+                investor_list: [],
+                image: { backgroundImage: `url(${investImg})` }
             }
         },
         async created() {
@@ -38,9 +40,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .main .top {
-        background-image: url("/images/bg-investors.jpg");
-    }
-</style>

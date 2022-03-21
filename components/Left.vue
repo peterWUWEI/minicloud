@@ -1,36 +1,31 @@
 <template>
     <div class="left">
 		<div class="logo">
-			<nuxt-link :to="localePath('/')"> <img src="/images/logo.png"> </nuxt-link>
+			<nuxt-link :to="localePath('/')"> <img src="/logo.png" /> </nuxt-link>
 		</div>
-		<div class="nav">
-			<b-nav vertical>
-				<b-nav-item>
-                    <nuxt-link :to="localePath('services')"> {{ $t('services') }} </nuxt-link>
-                </b-nav-item>
-				<b-nav-item>
-                    <nuxt-link :to="localePath('news')"> {{ $t('news') }} </nuxt-link>
-                </b-nav-item>
-				<b-nav-item>
-                    <nuxt-link :to="localePath('about')"> {{ $t('about') }} </nuxt-link>
-                </b-nav-item>
-				<b-nav-item>
-                    <nuxt-link :to="localePath('investorinfo')"> <span style="letter-spacing: 9px;">IR</span> {{ $t('investors') }} </nuxt-link>
-                </b-nav-item>
-				<b-nav-item>
-                    <nuxt-link :to="localePath('sustainability')"> {{ $t('sustainability') }} </nuxt-link>
-                </b-nav-item>
-				<b-nav-item>
-                    <nuxt-link :to="localePath('contacts')"> {{ $t('contact') }} </nuxt-link>
-                </b-nav-item>
-				<b-nav-item>
-                    <form action="" method="get" id="search"><input class="input-search" name="keyword" size="5" style="width: 100px;padding-right: 30px;box-sizing: border-box;"><img src="/images/icon-search.png" width="25" alt=""  style="line-height: 50px;vertical-align: middle; margin-left: -30px;" onclick="document.getElementById('search').submit();" ></form> 
-                </b-nav-item>
-				<b-nav-item>
-					<Language-selector/>
-				</b-nav-item>
-			</b-nav>
-		</div>
+        <b-nav vertical>
+            <b-nav-item>
+                <nuxt-link :to="localePath('services')"> {{ $t('services') }} </nuxt-link>
+            </b-nav-item>
+            <b-nav-item>
+                <nuxt-link :to="localePath('news')"> {{ $t('news') }} </nuxt-link>
+            </b-nav-item>
+            <b-nav-item>
+                <nuxt-link :to="localePath('about')"> {{ $t('about') }} </nuxt-link>
+            </b-nav-item>
+            <b-nav-item>
+                <nuxt-link :to="localePath('investorinfo')"> <span style="letter-spacing: 9px;">IR</span> {{ $t('investors') }} </nuxt-link>
+            </b-nav-item>
+            <b-nav-item>
+                <nuxt-link :to="localePath('sustainability')"> {{ $t('sustainability') }} </nuxt-link>
+            </b-nav-item>
+            <b-nav-item>
+                <nuxt-link :to="localePath('contacts')"> {{ $t('contact') }} </nuxt-link>
+            </b-nav-item>
+            <b-nav-item>
+                <Language-selector/>
+            </b-nav-item>
+        </b-nav>
 		<div class="bottom">
 			<div class="info">
 				<ul class="no-bullets">
@@ -68,6 +63,7 @@ export default {
         padding-left: 50px;
         box-sizing: border-box;
         overflow: hidden;
+        overflow-y: auto;
         position: fixed; 
         top:0; 
         bottom: 0;

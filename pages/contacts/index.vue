@@ -2,7 +2,7 @@
     <div>
         <Left/>
         <div class="main">
-            <div class="top">
+            <div class="top" :style="image">
                 <div class="title">{{ $t('contact_header')}}</div>
             </div>
 
@@ -15,11 +15,13 @@
 </template>
 
 <script>
+    import contactImg from "assets/bg-contact.jpg";
     export default {
         name: 'contacts',
         data() {
             return {
-                contact_list: []
+                contact_list: [],
+                image: { backgroundImage: `url(${contactImg})` }
             }
         },
         async created() {
@@ -33,9 +35,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .main .top {
-        background-image: url("/images/bg-contact.jpg");
-    }
-</style>

@@ -2,7 +2,7 @@
     <div>
         <Left/>
         <div class="main">
-            <div class="top">
+            <div class="top" :style="image">
                 <div class="title">{{ $t('service_header') }}</div>
             </div>
             <div class="content">
@@ -14,11 +14,13 @@
 </template>
 
 <script>
+    import serviceImg from "assets/bg-services.jpg";
     export default {
         name: 'services_page',
         data() {
             return {
-                service: []
+                service: [],
+                image: { backgroundImage: `url(${serviceImg})` }
             }
         },
         async created() {
@@ -32,9 +34,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .main .top {
-        background-image: url("/images/bg-services.jpg");
-    }
-</style>

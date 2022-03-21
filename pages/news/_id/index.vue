@@ -2,7 +2,7 @@
     <div>
         <Left/>
         <div class="main">
-            <div class="top">
+            <div class="top" :style="image">
                 <div class="title">{{ $t('news_header') }}</div>
             </div>
             <div class="content">
@@ -14,11 +14,13 @@
 </template>
 
 <script>
+    import newsImg from "assets/bg-news.jpg";
     export default {
         name: 'news_page',
         data() {
             return {
-                news: []
+                news: [],
+                image: { backgroundImage: `url(${newsImg})` }
             }
         },
         async created() {
@@ -31,9 +33,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .main .top {
-        background-image: url("/images/bg-news.jpg");
-    }
-</style>
