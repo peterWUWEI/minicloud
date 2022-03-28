@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <b-form-select v-model="selected" @change= "onChange(selected)" :options="options" size="m" class="mt-3"></b-form-select>
-  </div>
+  <b-form-select v-model="selected" @change= "onChange(selected)" :options="options" size="m" class="mt-3"></b-form-select>
 </template>
 
 <script>

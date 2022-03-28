@@ -1,11 +1,12 @@
 <template>
   <div>
-    <Left/>
-    <div class="main body-bg" onclick="location.href=#" style="cursor: pointer;" :style="image">
+    <Left :isActive.sync="isActive"/>
+    <div class="main body-bg" onclick="location.href=#" style=left: sidebarWidth cursor: pointer; :style="image">
 		<div class="content">
 			<p style=" width: 100%; text-align: center; font-size: 72px; font-weight: bold; margin-top: 250px;"></p>
 		</div>
 	</div>
+    {{ isActive }}
   </div>
 </template>
 
@@ -34,7 +35,8 @@
       },
       data() {
           return {
-              image: { backgroundImage: `url(${bgImg})` }
+              image: { backgroundImage: `url(${bgImg})` },
+              isActive: true
           }
       }
   }
@@ -140,9 +142,20 @@
         display: inline-block; 
         vertical-align: middle;
     }
-    
-    .main{overflow: hidden; clear: both; margin-left: 300px;width: 85vw;}
-    .main .content{text-align: center;margin-top: 300px; font-size: 50px}
+
+    .main {
+        position: absolute;
+        height: 100%;
+        width: calc(100% - 280px);
+        left: 280px;
+        transition: all 0.5s ease;
+    }
+
+    .main .content {
+        text-align: center;
+        margin-top: 300px; 
+        font-size: 50px
+    }
 
     .main .top {
         width: 100%; 
