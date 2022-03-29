@@ -1,12 +1,11 @@
 <template>
   <div>
-    <Left :isActive.sync="isActive"/>
+    <Left/>
     <div class="main body-bg" onclick="location.href=#" style=left: sidebarWidth cursor: pointer; :style="image">
-		<div class="content">
-			<p style=" width: 100%; text-align: center; font-size: 72px; font-weight: bold; margin-top: 250px;"></p>
-		</div>
-	</div>
-    {{ isActive }}
+        <div class="content">
+            <p style=" width: 100%; text-align: center; font-size: 72px; font-weight: bold; margin-top: 250px;"></p>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -143,11 +142,16 @@
         vertical-align: middle;
     }
 
+    .left.active ~ .main {
+        width: calc(100% - 280px);
+        left: 280px;
+    }
+
     .main {
         position: absolute;
         height: 100%;
-        width: calc(100% - 280px);
-        left: 280px;
+        width: calc(100% - 80px);
+        left: 80px;
         transition: all 0.5s ease;
     }
 

@@ -1,86 +1,82 @@
 <template>
-    <div> 
-        <div class="left" v-bind:class="{ active: isActive }">
-            
-            <div class="logo">
-                <nuxt-link :to="localePath('/')"> 
-                    <img src="/logo.png" />
-                </nuxt-link>
-            </div>
-            <div>
-                <a @click="changeActiveness()">
-                    <i class="fa-solid fa-list" id="btn"> </i>
-                </a>
-            </div>
-
-            <b-nav vertical id="sidebar">
-                <b-nav-item>
-                    <nuxt-link :to="localePath('services')">
-                        <i class="fa-brands fa-servicestack"></i>
-                        <span class="links_name"> {{ $t('services') }} </span>
-                    </nuxt-link>
-                </b-nav-item>
-
-                <b-nav-item>
-                    <nuxt-link :to="localePath('news')">
-                        <i class="fa-solid fa-bell"></i>
-                        <span class="links_name"> {{ $t('news') }} </span>
-                    </nuxt-link>
-                </b-nav-item>
-
-                <b-nav-item>
-                    <nuxt-link :to="localePath('about')">
-                        <i class="fa-solid fa-address-card"></i>
-                        <span class="links_name"> {{ $t('about') }} </span>
-                    </nuxt-link>
-                </b-nav-item>
-
-                <b-nav-item>
-                    <nuxt-link :to="localePath('investorinfo')"> 
-                        <i class="fa-solid fa-circle-info"></i>
-                        <span class="links_name">
-                            <span style="letter-spacing: 9px;">IR</span> {{ $t('investors') }} 
-                        </span>
-                    </nuxt-link>
-                </b-nav-item>
-
-                <b-nav-item>
-                    <nuxt-link :to="localePath('sustainability')"> 
-                        <i class="fa-solid fa-globe"></i>
-                        <span class="links_name"> {{ $t('sustainability') }} </span>
-                    </nuxt-link>
-                </b-nav-item>
-
-                <b-nav-item>
-                    <nuxt-link :to="localePath('contacts')"> 
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span class="links_name"> {{ $t('contact') }} </span>
-                    </nuxt-link>
-                </b-nav-item>
-
-                <b-nav-item>
-                    <Language-selector/>
-                </b-nav-item>
-            </b-nav>
-            
-                       <div class="bottom">
-                <div class="info">
-                    <ul class="no-bullets">
-                        <li> 
-                            <nuxt-link :to="localePath('sitemap')"> {{ $t('sitemap') }} </nuxt-link> 
-                        </li>
-                        <li>
-                            <nuxt-link :to="localePath('sitepolicy')"> {{ $t('sitepolicy') }} </nuxt-link> 
-                        </li>
-                    </ul>
-                </div>
-                <div class="copyright">
-                    ©   2022   株式会社ミニクラウド
-                </div>
-            </div>
-           
+    <div class="left" v-bind:class="{ active: isActive }">
+        
+        <div class="logo">
+            <nuxt-link :to="localePath('/')"> 
+                <img src="/logo.png" />
+            </nuxt-link>
+        </div>
+        <div>
+            <a @click="changeActiveness()">
+                <i class="fa-solid fa-list" id="btn"> </i>
+            </a>
         </div>
 
+        <b-nav vertical id="sidebar">
+            <b-nav-item>
+                <nuxt-link :to="localePath('services')">
+                    <i class="fa-brands fa-servicestack"></i>
+                    <span class="links_name"> {{ $t('services') }} </span>
+                </nuxt-link>
+            </b-nav-item>
+
+            <b-nav-item>
+                <nuxt-link :to="localePath('news')">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="links_name"> {{ $t('news') }} </span>
+                </nuxt-link>
+            </b-nav-item>
+
+            <b-nav-item>
+                <nuxt-link :to="localePath('about')">
+                    <i class="fa-solid fa-address-card"></i>
+                    <span class="links_name"> {{ $t('about') }} </span>
+                </nuxt-link>
+            </b-nav-item>
+
+            <b-nav-item>
+                <nuxt-link :to="localePath('investorinfo')"> 
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span class="links_name">
+                        <span style="letter-spacing: 9px;">IR</span> {{ $t('investors') }} 
+                    </span>
+                </nuxt-link>
+            </b-nav-item>
+
+            <b-nav-item>
+                <nuxt-link :to="localePath('sustainability')"> 
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="links_name"> {{ $t('sustainability') }} </span>
+                </nuxt-link>
+            </b-nav-item>
+
+            <b-nav-item>
+                <nuxt-link :to="localePath('contacts')"> 
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="links_name"> {{ $t('contact') }} </span>
+                </nuxt-link>
+            </b-nav-item>
+
+            <b-nav-item>
+                <Language-selector/>
+            </b-nav-item>
+        </b-nav>
+        
+        <div class="bottom">
+            <div class="info">
+                <ul class="no-bullets">
+                    <li> 
+                        <nuxt-link :to="localePath('sitemap')"> {{ $t('sitemap') }} </nuxt-link> 
+                    </li>
+                    <li>
+                        <nuxt-link :to="localePath('sitepolicy')"> {{ $t('sitepolicy') }} </nuxt-link> 
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                ©   2022   株式会社ミニクラウド
+            </div>
+        </div>
         
     </div>
 </template>
