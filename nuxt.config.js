@@ -1,10 +1,30 @@
 export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/less/main.less'
   ],
 
+  /*
+     ** Customize the progress bar color
+     */
+  loading: { color: '#3B8070' },
+
+  head: {
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'
+      }
+    ]
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/vuetify.js',
+    '~/plugins/base.js',
+    '~/plugins/chartist.js',
+    '~/plugins/components.js',
+    { src: '~/plugins/ckeditor.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -21,6 +41,8 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    '@nuxtjs/vuetify',
     ['nuxt-i18n', {
       locales: [
         {
@@ -62,7 +84,47 @@ export default {
     }
   },
 
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'login', method: 'post' },
+          logout: false,
+          user: false
+        }
+      }
+    }
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extractCSS: true,
+        optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    styles: {
+                        name: 'styles',
+                        test: /\.(css|vue)$/,
+                        chunks: 'all',
+                        enforce: true,
+                    },
+                },
+            },
+        },
+        extend(config, ctx) {
+            // Run ESLint on save
+            if (ctx.isDev && ctx.isClient) {
+                config.module.rules.push({
+                    enforce: 'pre',
+                    test: /\.(js|vue)$/,
+                    loader: 'eslint-loader',
+                    exclude: /(node_modules)/,
+                });
+            }
+            if (ctx.isClient) {
+                config.devtool = 'source-map';
+            }
+        },
+    transpile: [/^vuetify/],
   }
 }
