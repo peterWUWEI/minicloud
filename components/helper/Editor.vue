@@ -1,42 +1,41 @@
 <template>
-    <ckeditor :editor="editor" v-model="data" :config="config"></ckeditor>
+    <div id="app">
+        <client-only>
+            <vue-editor v-model="content"></vue-editor>
+        </client-only>
+    </div>
 </template>
-<script>
-//import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-let ClassicEditor;
-if (process.client) {
-    ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
-}
+<script>
+import { VueEditor } from 'vue2-editor';
 
 export default {
+    components: {
+        VueEditor,
+    },
+
     props: {
         value: {
             default: '',
         },
-        config: {
-            // The configuration of the editor.
-        },
     },
+
     computed: {
         data: {
             set(value) {
-                this.editorData = value;
+                this.content = value;
                 this.$emit('input', value);
             },
             get() {
-                return this.editorData;
+                return this.content;
             },
         },
     },
+
     data() {
         return {
-            editor: ClassicEditor,
-            editorData: '',
+            content: '',
         };
-    },
-    created() {
-        this.editorData = this.value;
     },
 };
 </script>

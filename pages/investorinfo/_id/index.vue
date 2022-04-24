@@ -7,7 +7,9 @@
             </div>
             <div class="content">
                 <div class="sd-title">{{ invest_info.pdf_title }}</div>
-                <div class="sd-title">{{ invest_info.content }}</div>
+                <div class="sd-content">
+                    <div v-html="content"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -20,13 +22,15 @@ export default {
     data() {
         return {
             invest_info: [],
+            content: '',
             image: { backgroundImage: `url(${investImg})` },
         };
     },
     async created() {
         try {
-            const res = await this.$axios.get(`/investorinfo/get?id=${this.$route.params.id}`);
+            const res = await this.$axios.get(`/investorinfo/${this.$route.params.id}`);
             this.invest_info = res.data;
+            this.content = res.data.content;
             console.log(res.data);
         } catch (err) {
             console.error(err);

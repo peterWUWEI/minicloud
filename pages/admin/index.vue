@@ -1,5 +1,8 @@
 <template>
-    <v-app><warning /></v-app>
+    <v-app>
+        <div v-if="isAuthenticated"></div>
+        <div v-else><warning /></div>
+    </v-app>
 </template>
 
 <script>

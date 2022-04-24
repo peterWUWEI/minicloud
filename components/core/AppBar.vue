@@ -12,7 +12,11 @@
                     <v-icon color="tertiary">mdi-view-dashboard</v-icon>
                 </v-btn>
 
-                <v-btn to="/admin/login" icon>
+                <v-btn icon v-if="isAuthenticated" @click="logout">
+                    <v-icon color="tertiary">mdi-logout</v-icon>
+                </v-btn>
+
+                <v-btn to="/admin/login" icon v-else>
                     <v-icon color="tertiary">mdi-account</v-icon>
                 </v-btn>
             </v-row>
@@ -22,7 +26,7 @@
 
 <script>
 // Utilities
-import { mapMutations } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 
 export default {
     mounted() {
@@ -45,6 +49,12 @@ export default {
                 this.responsive = false;
             }
         },
+        async logout() {
+            await this.$auth.logout();
+        },
+    },
+    computed: {
+        ...mapGetters(['isAuthenticated', 'loggedInUser']),
     },
 };
 </script>

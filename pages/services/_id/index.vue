@@ -7,7 +7,9 @@
             </div>
             <div class="content">
                 <div class="sd-title">{{ service.service_title }}</div>
-                <div class="sd-content">{{ service.service_content }}</div>
+                <div class="sd-content">
+                    <div v-html="content"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -20,13 +22,15 @@ export default {
     data() {
         return {
             service: [],
+            content: '',
             image: { backgroundImage: `url(${serviceImg})` },
         };
     },
     async created() {
         try {
-            const res = await this.$axios.get(`/services/get?id=${this.$route.params.id}`);
+            const res = await this.$axios.get(`/services/${this.$route.params.id}`);
             this.service = res.data;
+            this.content = res.data.service_content;
             console.log(res.data);
         } catch (err) {
             console.error(err);

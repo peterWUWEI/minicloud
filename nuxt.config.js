@@ -10,11 +10,16 @@ export default {
   loading: { color: '#3B8070' },
 
   head: {
+    meta: [
+      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css',
       }
     ]
   },
@@ -22,9 +27,7 @@ export default {
   plugins: [
     '~/plugins/vuetify.js',
     '~/plugins/base.js',
-    '~/plugins/chartist.js',
-    '~/plugins/components.js',
-    { src: '~/plugins/ckeditor.js', mode: 'client' },
+    '~/plugins/components.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,6 +46,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth',
     '@nuxtjs/vuetify',
+    'vue2-editor/nuxt',
     ['nuxt-i18n', {
       locales: [
         {
@@ -88,7 +92,7 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: 'login', method: 'post' },
+          login: { url: 'login/admin', method: 'post' },
           logout: false,
           user: false
         }

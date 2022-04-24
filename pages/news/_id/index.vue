@@ -7,7 +7,9 @@
             </div>
             <div class="content">
                 <div class="sd-title">{{ news.news_title }}</div>
-                <div class="sd-content">{{ news.news_content }}</div>
+                <div class="sd-content">
+                    <div v-html="content"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -20,13 +22,15 @@ export default {
     data() {
         return {
             news: [],
+            content: '',
             image: { backgroundImage: `url(${newsImg})` },
         };
     },
     async created() {
         try {
-            const res = await this.$axios.get(`/news/get?id=${this.$route.params.id}`);
+            const res = await this.$axios.get(`/news/${this.$route.params.id}`);
             this.news = res.data;
+            this.content = res.data.news_content;
         } catch (err) {
             console.error(err);
         }

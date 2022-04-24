@@ -65,12 +65,12 @@ export default {
                     {
                         subtitle: '服务列表',
                         icon: 'mdi-table',
-                        link: '/admin/service-list',
+                        link: '/admin/services',
                     },
                     {
                         subtitle: '添加新服务',
                         icon: 'mdi-playlist-plus',
-                        link: '/admin/add-service',
+                        link: '/admin/services/create',
                     },
                 ],
             },
@@ -80,12 +80,12 @@ export default {
                     {
                         subtitle: '新闻列表',
                         icon: 'mdi-table',
-                        link: '#',
+                        link: '/admin/news',
                     },
                     {
                         subtitle: '添加新闻',
                         icon: 'mdi-playlist-plus',
-                        link: '#',
+                        link: '/admin/news/create',
                     },
                 ],
             },
@@ -95,12 +95,12 @@ export default {
                     {
                         subtitle: '情报列表',
                         icon: 'mdi-table',
-                        link: '#',
+                        link: '/admin/about',
                     },
                     {
                         subtitle: '添加情报',
                         icon: 'mdi-playlist-plus',
-                        link: '#',
+                        link: '/admin/about/create',
                     },
                 ],
             },
@@ -110,12 +110,12 @@ export default {
                     {
                         subtitle: '公告列表',
                         icon: 'mdi-table',
-                        link: '#',
+                        link: '/admin/investorInfo',
                     },
                     {
                         subtitle: '添加公告',
                         icon: 'mdi-playlist-plus',
-                        link: '#',
+                        link: '/admin/investorInfo/create',
                     },
                 ],
             },
@@ -125,7 +125,7 @@ export default {
                     {
                         subtitle: '可持续发展',
                         icon: 'mdi-table',
-                        link: '#',
+                        link: '/admin/sustainability',
                     },
                 ],
             },
@@ -135,12 +135,12 @@ export default {
                     {
                         subtitle: '联系列表',
                         icon: 'mdi-table',
-                        link: '#',
+                        link: '/admin/contacts',
                     },
                     {
                         subtitle: '添加联系方式',
                         icon: 'mdi-playlist-plus',
-                        link: '#',
+                        link: '/admin/contacts/create',
                     },
                 ],
             },
