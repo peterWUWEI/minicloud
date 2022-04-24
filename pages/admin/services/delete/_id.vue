@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <section>
+        <section v-if="isAuthenticated">
             <h1>删除服务</h1>
             <v-divider></v-divider>
             <form @submit.prevent="deleteService()">
@@ -22,18 +22,26 @@
                 </nuxt-link>
             </form>
         </section>
+        <section v-else><warning /></section>
     </v-app>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import Warning from '@/components/Warning.vue';
+
 export default {
     layout: 'adminLayout',
+    components: { Warning },
     methods: {
         async deleteService() {
             const res = await this.$axios.delete(`services/${this.$route.params.id}`);
             console.log(res.data);
             this.$router.push(`/admin/services`);
         },
+    },
+    computed: {
+        ...mapGetters(['isAuthenticated', 'loggedInUser']),
     },
 };
 </script>

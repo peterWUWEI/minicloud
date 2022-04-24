@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-container fill-height fluid>
+        <v-container fill-height fluid v-if="isAuthenticated">
             <v-row justify="center">
                 <material-card color="green" title="关于编辑" text="更改关于内容">
                     <v-form v-model="isFormValid" @submit.prevent="updateAbout">
@@ -24,7 +24,9 @@
                                 <v-col cols="12" class="editor">
                                     <div class="editor-label">关于内容</div>
                                     <v-divider />
-                                    <editor v-model="about_content"></editor>
+                                    <client-only>
+                                        <vue-editor v-model="content"></vue-editor>
+                                    </client-only>
                                 </v-col>
 
                                 <p v-if="!isFormValid" style="color: red; font-style: italic">
@@ -40,22 +42,25 @@
                 </material-card>
             </v-row>
         </v-container>
+        <v-container v-else><warning /></v-container>
     </v-app>
 </template>
 
 <script>
-import Editor from '../../../../components/helper/Editor';
+import { VueEditor } from 'vue2-editor';
+import Warning from '@/components/Warning.vue';
+import { mapGetters } from 'vuex';
 
 export default {
     layout: 'adminLayout',
-    components: { Editor },
+    components: { VueEditor, Warning },
     data() {
         return {
             isFormValid: false,
-            formRules: [(v) => !!v || 'The field is required'],
+            formRules: [(v) => !!v || '该内容必须填写'],
             about_id: 0,
             about_title: '',
-            about_content: '',
+            content: '',
         };
     },
     async mounted() {
@@ -64,7 +69,7 @@ export default {
             console.log(res);
             this.about_id = res.data.id;
             this.about_title = res.data.title;
-            this.about_content = res.data.content;
+            this.content = res.data.content;
         } catch (err) {
             console.error(err);
         }
@@ -73,11 +78,14 @@ export default {
         async updateAbout() {
             const res = await this.$axios.put(`/about/${this.$route.params.id}`, {
                 title: this.about_title,
-                content: this.about_content,
+                content: this.content,
             });
             console.log(res.data);
             this.$router.push(`/admin/about`);
         },
+    },
+    computed: {
+        ...mapGetters(['isAuthenticated', 'loggedInUser']),
     },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-container fill-height fluid>
+        <v-container fill-height fluid v-if="isAuthenticated">
             <v-row justify="center">
                 <material-card color="green" title="投资信息编辑" text="创建新的投资信息内容">
                     <v-form v-model="isFormValid" @submit.prevent="addNewInvestorInfo">
@@ -8,7 +8,7 @@
                             <v-row>
                                 <v-col cols="12" md="4">
                                     <v-text-field
-                                        v-model="investorInfo_title"
+                                        v-model="title"
                                         :rules="formRules"
                                         class="purple-input"
                                         label="投资信息标题"
@@ -19,7 +19,9 @@
                                 <v-col cols="12" class="editor">
                                     <div class="editor-label">投资信息内容</div>
                                     <v-divider />
-                                    <editor v-model="investorInfo_content"></editor>
+                                    <client-only>
+                                        <vue-editor v-model="content"></vue-editor>
+                                    </client-only>
                                 </v-col>
 
                                 <p v-if="!isFormValid" style="color: red; font-style: italic">
@@ -35,31 +37,38 @@
                 </material-card>
             </v-row>
         </v-container>
+        <v-container v-else><warning /></v-container>
     </v-app>
 </template>
 
 <script>
-import Editor from '../../../components/helper/Editor';
+import { VueEditor } from 'vue2-editor';
+import { mapGetters } from 'vuex';
+import Warning from '@/components/Warning.vue';
 
 export default {
     layout: 'adminLayout',
-    components: { Editor },
+    components: { VueEditor, Warning },
     data() {
         return {
-            investorInfo_content: 'Please type in here',
+            title: '',
+            content: '',
             isFormValid: false,
-            formRules: [(v) => !!v || 'The field is required'],
+            formRules: [(v) => !!v || '该内容必须填写'],
         };
     },
     methods: {
         async addNewInvestorInfo() {
             const res = await this.$axios.post(`/investorInfo/create`, {
-                title: this.investorInfo_title,
-                content: this.investorInfoe_content,
+                title: this.title,
+                content: this.content,
             });
             console.log(res.data);
             this.$router.push(`/admin/investorInfo`);
         },
+    },
+    computed: {
+        ...mapGetters(['isAuthenticated', 'loggedInUser']),
     },
 };
 </script>

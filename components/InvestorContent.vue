@@ -15,3 +15,30 @@ export default {
     props: ['pdf_title', 'pdf_file_url', 'id'],
 };
 </script>
+
+<style scoped>
+.inv-title {
+    width: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    border-bottom: 2px solid #36225f;
+    text-align: left;
+}
+.inv-item {
+    width: 100%;
+    line-height: 30px;
+    margin-top: 30px;
+    font-size: 20px;
+    text-align: left;
+}
+.inv-item img {
+    width: 20px;
+    vertical-align: middle;
+    margin-left: 30px;
+}
+.inv-item .icon-list {
+    width: 20px;
+    vertical-align: middle;
+    margin-left: 0;
+}
+</style>

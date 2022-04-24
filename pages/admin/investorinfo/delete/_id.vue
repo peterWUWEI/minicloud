@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <section>
+        <section v-if="isAuthenticated">
             <h1>删除投资信息</h1>
             <v-divider></v-divider>
             <form @submit.prevent="deleteInvestorInfo()">
@@ -11,22 +11,27 @@
                 </material-notification>
 
                 <v-btn type="submit" color="red darken-3" dark text>
-                    Delete
+                    删除
                     <v-icon dark right>mdi-delete</v-icon>
                 </v-btn>
                 <nuxt-link to="/admin/investorInfo">
                     <v-btn color="blue darken-3" text>
-                        Cancel
+                        取消
                         <v-icon dark right>mdi-cancel</v-icon>
                     </v-btn>
                 </nuxt-link>
             </form>
         </section>
+        <section v-else><warning /></section>
     </v-app>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import Warning from '@/components/Warning.vue';
+
 export default {
+    components: { Warning },
     layout: 'adminLayout',
     methods: {
         async deleteInvestorInfo() {
@@ -34,6 +39,9 @@ export default {
             console.log(res.data);
             this.$router.push(`/admin/investorInfo`);
         },
+    },
+    computed: {
+        ...mapGetters(['isAuthenticated', 'loggedInUser']),
     },
 };
 </script>

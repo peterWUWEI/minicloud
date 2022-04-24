@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-container fill-height fluid>
+        <v-container fill-height fluid v-if="isAuthenticated">
             <v-row justify="center">
                 <material-card color="green" title="服务编辑" text="创建新的服务内容">
                     <v-form v-model="isFormValid" @submit.prevent="addNewService">
@@ -20,11 +20,7 @@
                                     <div class="editor-label">服务内容</div>
                                     <v-divider />
                                     <client-only>
-                                        <vue-editor
-                                            useCustomImageHandler
-                                            @image-added="handleImageAdded"
-                                            v-model="content"
-                                        ></vue-editor>
+                                        <vue-editor v-model="content"></vue-editor>
                                     </client-only>
                                 </v-col>
 
@@ -41,20 +37,25 @@
                 </material-card>
             </v-row>
         </v-container>
+        <v-container v-else>
+            <warning />
+        </v-container>
     </v-app>
 </template>
 
 <script>
 import { VueEditor } from 'vue2-editor';
+import { mapGetters } from 'vuex';
+import Warning from '@/components/Warning.vue';
 
 export default {
     layout: 'adminLayout',
-    components: { VueEditor },
+    components: { VueEditor, Warning },
     data() {
         return {
-            content: '<p>Please type in here<p>',
+            content: '',
             isFormValid: false,
-            formRules: [(v) => !!v || 'The field is required'],
+            formRules: [(v) => !!v || '该内容必须填写'],
         };
     },
     methods: {
@@ -66,6 +67,9 @@ export default {
             console.log(res.data);
             this.$router.push(`/admin/services`);
         },
+    },
+    computed: {
+        ...mapGetters(['isAuthenticated', 'loggedInUser']),
     },
 };
 </script>

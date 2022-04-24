@@ -2,27 +2,23 @@
     <v-app>
         <v-container fill-height fluid v-if="isAuthenticated">
             <v-row justify="center">
-                <material-card color="green" title="联系编辑" text="更改联系内容">
-                    <v-form v-model="isFormValid" @submit.prevent="updateContact">
+                <material-card color="green" title="可持续发展编辑" text="更改可持续发展内容">
+                    <v-form v-model="isFormValid" @submit.prevent="updateService">
                         <v-container class="py-0">
                             <v-row>
                                 <v-col cols="12" md="4">
-                                    <v-text-field v-model="contact_id" label="ID (disabled)" disabled filled />
-                                </v-col>
-
-                                <v-col cols="12" md="4">
                                     <v-text-field
-                                        v-model="contact_title"
+                                        v-model="service_title"
                                         :rules="formRules"
                                         class="purple-input"
-                                        label="联系标题"
+                                        label="可持续发展标题"
                                         filled
                                         required
                                     />
                                 </v-col>
 
                                 <v-col cols="12" class="editor">
-                                    <div class="editor-label">联系内容</div>
+                                    <div class="editor-label">可持续发展内容</div>
                                     <v-divider />
                                     <client-only>
                                         <vue-editor v-model="content"></vue-editor>
@@ -58,30 +54,28 @@ export default {
         return {
             isFormValid: false,
             formRules: [(v) => !!v || '该内容必须填写'],
-            contact_id: 0,
-            contact_title: '',
+            title: '',
             content: '',
         };
     },
-    async mounted() {
+    async created() {
         try {
-            const res = await this.$axios.get(`/contacts/${this.$route.params.id}`);
+            const res = await this.$axios.get(`/sustainability`);
             console.log(res);
-            this.contact_id = res.data.id;
-            this.contact_title = res.data.title;
+            this.title = res.data.title;
             this.content = res.data.content;
         } catch (err) {
             console.error(err);
         }
     },
     methods: {
-        async updateContact() {
-            const res = await this.$axios.put(`/contacts/${this.$route.params.id}`, {
-                title: this.contact_title,
+        async updateService() {
+            const res = await this.$axios.put(`/sustainability`, {
+                title: this.title,
                 content: this.content,
             });
             console.log(res.data);
-            this.$router.push(`/admin/contacts`);
+            this.$router.push(`/admin/sustainability`);
         },
     },
     computed: {

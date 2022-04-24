@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-container fill-height fluid>
+        <v-container fill-height fluid v-if="isAuthenticated">
             <v-row justify="center">
                 <material-card color="green" title="服务编辑" text="更改服务内容">
                     <v-form v-model="isFormValid" @submit.prevent="updateService">
@@ -42,19 +42,22 @@
                 </material-card>
             </v-row>
         </v-container>
+        <v-container v-else><warning /></v-container>
     </v-app>
 </template>
 
 <script>
 import { VueEditor } from 'vue2-editor';
+import { mapGetters } from 'vuex';
+import Warning from '@/components/Warning.vue';
 
 export default {
     layout: 'adminLayout',
-    components: { VueEditor },
+    components: { VueEditor, Warning },
     data() {
         return {
             isFormValid: false,
-            formRules: [(v) => !!v || 'The field is required'],
+            formRules: [(v) => !!v || '该内容必须填写'],
             service_id: 0,
             service_title: '',
             content: '',
@@ -80,6 +83,9 @@ export default {
             console.log(res.data);
             this.$router.push(`/admin/services`);
         },
+    },
+    computed: {
+        ...mapGetters(['isAuthenticated', 'loggedInUser']),
     },
 };
 </script>

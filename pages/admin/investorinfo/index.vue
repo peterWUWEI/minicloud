@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-container fill-height fluid grid-list-xl id="table-content">
+        <v-container fill-height fluid grid-list-xl id="table-content" v-if="isAuthenticated">
             <v-row justify="center">
                 <v-col cols="12">
                     <material-card color="green" title="投资信息列表">
@@ -49,11 +49,18 @@
                 </v-col>
             </v-row>
         </v-container>
+        <v-container v-else>
+            <warning />
+        </v-container>
     </v-app>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import Warning from '@/components/Warning.vue';
+
 export default {
+    components: { Warning },
     layout: 'adminLayout',
     data: () => ({
         drawer: null,
@@ -92,6 +99,9 @@ export default {
         deleteInvestorInfo(investorInfoId) {
             this.$router.push(`/admin/investorInfo/delete/${investorInfoId}`);
         },
+    },
+    computed: {
+        ...mapGetters(['isAuthenticated', 'loggedInUser']),
     },
 };
 </script>
