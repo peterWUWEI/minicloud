@@ -120,6 +120,12 @@ export default {
   transition: all 0.5s ease;
   display: flex;
   flex-direction: column;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.left::-webkit-scrollbar {
+  display: none;
 }
 
 .left.active {
@@ -166,6 +172,12 @@ export default {
   height: 400px;
   overflow-y: scroll;
   flex-wrap: nowrap;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.left #sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .left #sidebar li {
